@@ -1,3 +1,4 @@
+/*Default Setting*/
 *{
     margin: 0;
     padding: 0;
@@ -5,105 +6,101 @@
     /*overflow: hidden;*/
 }
 *:focus{
-    outline: none;
+    outline: none;                      /*Do not show border when element focused*/
 }
 
 body{
     font-family: 'Kanit', sans-serif;
 }
-
+/*Navigation Bar*/
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 8vh;
+    display: flex;                      /*Display elements in "nav" as Flexible Box*/
+    justify-content: space-between;     /*Seperant elements to leftside and rightside*/
+    align-items: center;                /*align elements in "nav" class to center*/
+    min-height: 8vh;                    /*Minimum height 8% of the viewport*/
     background:rgb(255, 120, 42);
 }
 .logo a{
     color: white;
-    text-transform: uppercase;
-    letter-spacing: 5px;
+    text-transform: uppercase;          /*Uppercase logo's text*/
+    letter-spacing: 5px;                /*Increased space between letter by 5 pixel*/
     font-size: 30px;
-    margin-left: 10px;
-    text-decoration: none;
+    margin-left: 10px;                  /*Add margin to the left 10 pixel*/
+    text-decoration: none;              /*Remove text decoration*/
 }
 .logo:hover{
-    cursor: pointer;
+    cursor: pointer;                    /*Change mouse's cursor to pointer when pointing on "logo"*/
 }
 
-.nav-links{
-    display: flex;
-    justify-content: space-around;
-    width: 30%;
-    flex: 1;
+.nav-links{                             
+    display: flex;                      /*Display elements in "nav-links" as Flexible Box*/
+    justify-content: space-around;      /*Seperant all elements equaly*/
+    width: 30%;                         
+    flex: 1;                            /*arrange navigation menu*/
 }
 .nav-link:hover{
-    cursor: pointer;
+    cursor: pointer;                    /*Change mouse's cursor to pointer when pointing on "nav-link"*/
 }
 .nav-links li{
-    list-style: none;
+    list-style: none;                   /*Remove the bullet*/
 }
 .nav-link a{
     color:white;
-    text-decoration: none;
-    letter-spacing: 2px;
+    text-decoration: none;              /*Remove text's decoration*/
+    letter-spacing: 2px;                /*Increased space between letter by 5 pixel*/
     font-size: 20px;
-}
-.nav-link:hover{
-    cursor: pointer;
 }
 
 .search{
     background-color: rgb(255, 255, 255);
-    border-radius: 10px;
-    margin-right: 5px;
+    border-radius: 10px;                /*Rounded search box's border*/
+    margin-right: 5px;                  /*Add right margin*/
 
 }
 .search-button{
-    background: none;
-    border: none;
-    padding-left: 2px;
-    size: 2rem;
-    cursor: pointer;
+    background: none;                   /*Transparent background*/
+    border: none;                       /*Remove button's border*/
+    padding-left: 2px;                  /*Add left padding*/
+    size: 2rem;                         /*Increased size by 2 root element*/
+    cursor: pointer;                    /*Change mouse's cursor to pointer when pointing on "search-button"*/
 }
-.search-input{
-    background: none;
-    border: none;
+.search-input{                          
+    background: none;                   /*Transparent background*/
+    border: none;                       /*Remove search box's border*/
 }
-
+/*Welcome Section*/
 .section1{
-    display: flex;
-    align-content: center;
-    justify-content: center;
+    display: flex;                      /*Display elements in "section1" as Flexible Box*/
+    align-content: center;              /*align elements to center*/
+    justify-content: center;            /*justify elements to center of viewport*/
     font-size: 60px;
-    background-image: url("./src/img/g.jpg");
-    background-position: center;
-    min-width: 100%;
-    min-height: 3.9em
+    background-image: url("./src/img/g.jpg");   /*Set background image*/
+    background-position: center;                /*Align background image to center*/
+    min-width: 100%;                    /*Background's width always equal to viewport's width*/
+    min-height: 3.9em                   /*Background height always equal to 3.9 times of element*/
 }
 .glass{
-    margin: 5px 0px;
-    padding: 4rem 0px;
+    margin: 5px 0px;                    /*Add left|right margin 5 pixel and top|bottom 0 pixel*/
+    padding: 4rem 0px;                  /*Add left|right padding 5 pixel and top|bottom 0 pixel*/
     background: white;
-    min-width: 10vh;
-    width: 70%;
-    height: 218px;
-    border-radius: 20px;
-    background: linear-gradient(
+    width: 70%;                         /*Base width equal to 70% of viewport*/
+    height: 218px;                      /*Base height equal to 218 pixel*/
+    border-radius: 20px;                /*Rounded glass's border by 20 pixel*/
+    background: linear-gradient(        /*Decrease glass's opacity*/
         to right bottom,
         rgba(255, 255, 255, 0.1),
         rgba(255, 255, 255, 0.1)
     );
-    z-index: 1;
-    backdrop-filter: blur(3px);
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    z-index: 1;                         /*Add glass to layer 1*/
+    backdrop-filter: blur(3px);         /*Blur all the elements behind*/
+    border: 1px solid rgba(255, 255, 255, 0.4); /*Add glass's border*/
 
 }
 .section1-text{
-    display: flex;
+    display: flex;                      /*Display elements in "section1-text" as Flexible Box*/
     color: rgb(255, 255, 255);
-    text-shadow: 2px 1px rgb(37, 36, 36);
-    letter-spacing: 3px;
-    justify-content: center;
-    z-index: 2;
+    text-shadow: 2px 1px rgb(37, 36, 36);   /*Add text's shadow*/
+    letter-spacing: 3px;                /*Increased space between letter by 3 pixel*/
+    justify-content: center;            /*Justify text to center*/
+    z-index: 2;                         /*Add text to layer 2*/
 }
