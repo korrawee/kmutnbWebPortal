@@ -18,7 +18,7 @@ nav {
     justify-content: space-between;     /*Seperant elements to leftside and rightside*/
     align-items: center;                /*align elements in "nav" class to center*/
     min-height: 8vh;                    /*Minimum height 8% of the viewport*/
-    background:rgb(255, 120, 42);
+    background:rgb(163, 34, 34);
 }
 .logo a{
     color: white;
@@ -38,7 +38,12 @@ nav {
     width: 30%;                         
     flex: 1;                            /*arrange navigation menu*/
 }
+.nav-link{
+    color: white;
+    transition: all .3s ease;    
+}
 .nav-link:hover{
+    color: #282828;
     cursor: pointer;                    /*Change mouse's cursor to pointer when pointing on "nav-link"*/
 }
 .nav-links li{
