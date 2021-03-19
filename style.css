@@ -73,11 +73,11 @@ nav {
     background: none;                   /*Transparent background*/
     border: none;                       /*Remove search box's border*/
 }
-/*Welcome Section*/
-.section1{
-    display: flex;                      /*Display elements in "section1" as Flexible Box*/
-    align-content: center;              /*align elements to center*/
-    justify-content: center;            /*justify elements to center of viewport*/
+
+.home{
+    display: flex;
+    align-content: center;
+    justify-content: center;
     font-size: 60px;
     background-image: url("./src/img/g.jpg");   /*Set background image*/
     background-position: center;                /*Align background image to center*/
@@ -101,11 +101,33 @@ nav {
     border: 1px solid rgba(255, 255, 255, 0.4); /*Add glass's border*/
 
 }
-.section1-text{
-    display: flex;                      /*Display elements in "section1-text" as Flexible Box*/
+.home-text{
+    display: flex;
     color: rgb(255, 255, 255);
     text-shadow: 2px 1px rgb(37, 36, 36);   /*Add text's shadow*/
     letter-spacing: 3px;                /*Increased space between letter by 3 pixel*/
     justify-content: center;            /*Justify text to center*/
     z-index: 2;                         /*Add text to layer 2*/
+}
+
+.content{
+    display: flex;
+    flex-flow: column;
+    margin: 50px 80px;
+
+}
+.content #img{
+    max-width: 20em;
+}
+#content-text{
+    margin-left: 15%;
+    font-size: 20px;
+    max-width: 90em;
+    text-indent: 40px;
+}
+.content-child{
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+
 }
