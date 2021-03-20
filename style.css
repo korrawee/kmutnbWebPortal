@@ -1,4 +1,4 @@
-/*Default Setting*/
+/* Default Setting */
 *{
     margin: 0;
     padding: 0;
@@ -12,21 +12,27 @@
 body{
     font-family: 'Kanit', sans-serif;
 }
-/*Navigation Bar*/
+
+/* Navigation Bar */
 nav {
+    position: sticky;
+    top:0;
+    z-index: 3;
     display: flex;                      /*Display elements in "nav" as Flexible Box*/
     justify-content: space-between;     /*Seperant elements to leftside and rightside*/
     align-items: center;                /*align elements in "nav" class to center*/
     min-height: 8vh;                    /*Minimum height 8% of the viewport*/
     background:rgb(163, 34, 34);
+    transition: all 0.3s ease;
 }
 .logo a{
     color: white;
     text-transform: uppercase;          /*Uppercase logo's text*/
     letter-spacing: 5px;                /*Increased space between letter by 5 pixel*/
-    font-size: 30px;
+    font-size: 25px;
     margin-left: 10px;                  /*Add margin to the left 10 pixel*/
     text-decoration: none;              /*Remove text decoration*/
+    transition: all 0.3s ease;
 }
 .logo:hover{
     cursor: pointer;                    /*Change mouse's cursor to pointer when pointing on "logo"*/
@@ -74,6 +80,15 @@ nav {
     border: none;                       /*Remove search box's border*/
 }
 
+/* Navigation Bar Animaiton */
+nav.sticky{
+    height: 10vh;
+}
+nav.sticky .logo a{
+    font-size: 32px;
+}
+
+/* Seciton HOME */
 .home{
     display: flex;
     align-content: center;

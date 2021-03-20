@@ -1,14 +1,16 @@
 const content = document.querySelector('.content');
-
+const navBar = document.querySelector('nav');
 //EventListeners
 
 
-
+scrollNav();
 for(let i=0; i< 10; i++){
     genContent(content);
 }
 
 //Functions
+
+//ADD Contents
 function genContent(content){
     //Create content section
     const newSection = document.createElement('section');
@@ -26,4 +28,15 @@ function genContent(content){
     newSection.appendChild(newContent);
 
     content.appendChild(newSection);
+}
+
+//NAVIGATION BAR animation
+function scrollNav(){
+    window.addEventListener('scroll', () =>{
+        if(window.scrollY > 20){
+            navBar.classList.add('sticky');
+        }else{
+            navBar.classList.remove('sticky');
+        }
+    });
 }
