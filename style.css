@@ -22,7 +22,7 @@ nav {
     justify-content: space-between;     /*Seperant elements to leftside and rightside*/
     align-items: center;                /*align elements in "nav" class to center*/
     min-height: 8vh;                    /*Minimum height 8% of the viewport*/
-    background:rgb(163, 34, 34);
+    background: #ec4411;
     transition: all 0.3s ease;
 }
 .logo a{
@@ -34,9 +34,11 @@ nav {
     text-decoration: none;              /*Remove text decoration*/
     transition: all 0.3s ease;
 }
-.logo:hover{
+.logo a:hover{
+    color: #161616;
     cursor: pointer;                    /*Change mouse's cursor to pointer when pointing on "logo"*/
 }
+
 
 .nav-links{                             
     display: flex;                      /*Display elements in "nav-links" as Flexible Box*/
@@ -44,12 +46,12 @@ nav {
     width: 30%;                         
     flex: 1;                            /*arrange navigation menu*/
 }
-.nav-link{
+.nav-link a{
     color: white;
-    transition: all .3s ease;    
+    transition: all .4s ease;    
 }
-.nav-link:hover{
-    color: #282828;
+.nav-link a:hover{
+    color: #161616;
     cursor: pointer;                    /*Change mouse's cursor to pointer when pointing on "nav-link"*/
 }
 .nav-links li{
@@ -82,7 +84,7 @@ nav {
 
 /* Navigation Bar Animaiton */
 nav.sticky{
-    height: 10vh;
+    height: 9vh;
 }
 nav.sticky .logo a{
     font-size: 32px;
