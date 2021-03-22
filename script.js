@@ -77,6 +77,7 @@ function appendContent(parent, imgSrc, contentSrc, urlSrc){
     const newImage = document.createElement('img');
     newImage.src = imgSrc;
     newImage.id = 'img';
+    //newImage.classList.add('img-transition');
     newImage.addEventListener('click', () => {
         window.location.href = urlSrc;
     });
@@ -102,7 +103,3 @@ function scrollNav(){
     });
 }
 
-//Add link to element
-function addLink(element,){
-
-}
