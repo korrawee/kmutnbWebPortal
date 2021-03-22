@@ -24,42 +24,32 @@ function genContent(){
                     let catElement = Object.values(data[catIndex])[0];
 
                     for(let i=0 ; i < catElement.length ; i++){
-                        appendContent(content, catElement[i].img, 
-                                    catElement[i].topic, 
-                                    catElement[i].url);
+                        appendContent(content, catElement[i].img, catElement[i].topic);
                     }
                 }
                 break;
             case "award":
                 console.log(data[1].award.length);
                 for(let i=0 ; i < data[1].award.length ; i++){
-                    appendContent(content, data[1].award[i].img, 
-                                    data[1].award[i].topic, 
-                                    data[1].award[i].url);
+                    appendContent(content, data[1].award[i].img, data[1].award[i].topic);
                 }
                 break;
             case "invention":
                 console.log(data[2].invent.length);
                 for(let i=0 ; i < data[2].invent.length ; i++){
-                    appendContent(content, data[2].invent[i].img, 
-                                    data[2].invent[i].topic, 
-                                    data[2].invent[i].url);
+                    appendContent(content, data[2].invent[i].img, data[2].invent[i].topic);
                 }
                 break;
             case "scholarship":
                 console.log(data[3].scholarship.length);
                 for(let i=0 ; i < data[3].scholarship.length ; i++){
-                    appendContent(content, data[3].scholarship[i].img, 
-                                    data[3].scholarship[i].topic, 
-                                    data[3].scholarship[i].url);
+                    appendContent(content, data[3].scholarship[i].img, data[3].scholarship[i].topic);
                 }
                 break;
             case "research":
                 console.log(data[0].research.length);
                 for(let i=0 ; i < data[0].research.length ; i++){
-                    appendContent(content, data[0].research[i].img, 
-                                    data[0].research[i].topic,
-                                    data[0].research[i].url);
+                    appendContent(content, data[0].research[i].img, data[0].research[i].topic);
                 }
                 break;
         }//End switch cases
@@ -68,7 +58,7 @@ function genContent(){
     
     
 }
-function appendContent(parent, imgSrc, contentSrc, urlSrc){
+function appendContent(parent, imgSrc, contentSrc){
     //Create content section
     const newSection = document.createElement('section');
     newSection.classList = 'content-child';
@@ -77,10 +67,12 @@ function appendContent(parent, imgSrc, contentSrc, urlSrc){
     const newImage = document.createElement('img');
     newImage.src = imgSrc;
     newImage.id = 'img';
-    newImage.addEventListener('click', () => {
-        window.location.href = urlSrc;
-    });
-    newSection.appendChild(newImage);
+
+    //Add link
+    const newLink = document.createElement('a');
+    newLink.href = "www.google.co.th";
+    newLink.appendChild(newImage);
+    newSection.appendChild(newLink);
 
     //Add content element
     const newContent = document.createElement('p');
@@ -100,9 +92,4 @@ function scrollNav(){
             navBar.classList.remove('sticky');
         }
     });
-}
-
-//Add link to element
-function addLink(element,){
-
 }

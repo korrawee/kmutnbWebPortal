@@ -1,0 +1,161 @@
+/* Default Setting */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*overflow: hidden;*/
+}
+*:focus{
+    outline: none;                      /*Do not show border when element focused*/
+}
+
+body{
+    font-family: 'Kanit', sans-serif;
+}
+
+/* Navigation Bar */
+nav {
+    position: sticky;
+    top:0;
+    z-index: 3;
+    display: flex;                      /*Display elements in "nav" as Flexible Box*/
+    justify-content: space-between;     /*Seperant elements to leftside and rightside*/
+    align-items: center;                /*align elements in "nav" class to center*/
+    min-height: 8vh;                    /*Minimum height 8% of the viewport*/
+    background: #ec4411;
+    transition: all 0.3s ease;
+}
+.logo a{
+    color: white;
+    text-transform: uppercase;          /*Uppercase logo's text*/
+    letter-spacing: 5px;                /*Increased space between letter by 5 pixel*/
+    font-size: 25px;
+    margin-left: 10px;                  /*Add margin to the left 10 pixel*/
+    text-decoration: none;              /*Remove text decoration*/
+    transition: all 0.3s ease;
+}
+.logo a:hover{
+    color: #161616;
+    cursor: pointer;                    /*Change mouse's cursor to pointer when pointing on "logo"*/
+}
+
+
+.nav-links{                             
+    display: flex;                      /*Display elements in "nav-links" as Flexible Box*/
+    justify-content: space-around;      /*Seperant all elements equaly*/
+    width: 30%;                         
+    flex: 1;                            /*arrange navigation menu*/
+}
+.nav-link a{
+    color: white;
+    transition: all .4s ease;    
+}
+.nav-link a:hover{
+    color: #161616;
+    cursor: pointer;                    /*Change mouse's cursor to pointer when pointing on "nav-link"*/
+}
+.nav-links li{
+    list-style: none;                   /*Remove the bullet*/
+}
+.nav-link a{
+    color:white;
+    text-decoration: none;              /*Remove text's decoration*/
+    letter-spacing: 2px;                /*Increased space between letter by 5 pixel*/
+    font-size: 20px;
+}
+
+.search{
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;                /*Rounded search box's border*/
+    margin-right: 5px;                  /*Add right margin*/
+
+}
+.search-button{
+    background: none;                   /*Transparent background*/
+    border: none;                       /*Remove button's border*/
+    padding-left: 2px;                  /*Add left padding*/
+    size: 2rem;                         /*Increased size by 2 root element*/
+    cursor: pointer;                    /*Change mouse's cursor to pointer when pointing on "search-button"*/
+}
+.search-input{                          
+    background: none;                   /*Transparent background*/
+    border: none;                       /*Remove search box's border*/
+}
+
+/* Navigation Bar Animaiton */
+nav.sticky{
+    height: 9vh;
+}
+nav.sticky .logo a{
+    font-size: 32px;
+}
+
+/* Seciton HOME */
+.home{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    font-size: 60px;
+    background-image: url("./src/img/g.jpg");   /*Set background image*/
+    background-position: cover;                /*Align background image to center*/
+    min-width: 100%;                    /*Background's width always equal to viewport's width*/
+    min-height: 3.9em                   /*Background height always equal to 3.9 times of element*/
+}
+.glass{
+    margin: 5px 0px;                    /*Add left|right margin 5 pixel and top|bottom 0 pixel*/
+    padding: 4rem 0px;                  /*Add left|right padding 5 pixel and top|bottom 0 pixel*/
+    background: white;
+    width: 70%;                         /*Base width equal to 70% of viewport*/
+    height: 218px;                      /*Base height equal to 218 pixel*/
+    border-radius: 20px;                /*Rounded glass's border by 20 pixel*/
+    background: linear-gradient(        /*Decrease glass's opacity*/
+        to right bottom,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.1)
+    );
+    z-index: 1;                         /*Add glass to layer 1*/
+    backdrop-filter: blur(3px);         /*Blur all the elements behind*/
+    border: 1px solid rgba(255, 255, 255, 0.4); /*Add glass's border*/
+
+}
+.home-text{
+    display: flex;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 1px rgb(37, 36, 36);   /*Add text's shadow*/
+    letter-spacing: 3px;                /*Increased space between letter by 3 pixel*/
+    justify-content: center;            /*Justify text to center*/
+    z-index: 2;                         /*Add text to layer 2*/
+}
+
+.content{
+    display: flex;
+    flex-flow: column;
+    margin: 50px 80px;
+
+}
+
+.content #img{
+    width: 20em;
+    height: 15rem;
+    object-fit: cover;
+}
+#content-text{
+    margin-left: 5%;
+    justify-content: end;
+    font-size: 16px;
+    max-width: 90em;
+    text-indent: 40px;
+}
+/*.content-child{
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+
+}*/
+.content-child{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 30px;
+    justify-content: center;
+
+}
