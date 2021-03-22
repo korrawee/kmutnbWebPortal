@@ -1,9 +1,14 @@
 const content = document.querySelector('.content');
 const navBar = document.querySelector('nav');
 const page = document.querySelector("page");
+const searchInput = document.querySelector('.search-input');
 
+var data = {};
+var contentChild = [];
 //EventListeners
-
+searchInput.addEventListener('keydown', (e) => {
+    search(e);
+});
 
 scrollNav();
 genContent();
@@ -15,11 +20,13 @@ function genContent(){
     //Read data from JSON file
     fetch("./src/data/data.json") 
     .then(response => response.json())
-    .then(data => {
+    .then(d => {
         //Working with the data HERE
+        data = d;
+        console.log(data.length);
         switch(page.classList.value){
             case "index":
-                let catLen = Object.keys(data).length; // catLen = number of category
+                let catLen = data.length; // catLen = number of category
                 for(let catIndex=0 ; catIndex < catLen ; catIndex++){
                     let catElement = Object.values(data[catIndex])[0];
 
@@ -68,7 +75,6 @@ function genContent(){
                 }
                 break;
         }//End switch cases
-        
     });
     
     
@@ -76,6 +82,7 @@ function genContent(){
 function appendContent(parent, imgSrc, topicSrc, contentSrc, urlSrc){
     //Create content section
     const newSection = document.createElement('section');
+    contentChild.push(newSection);  // store content into array
     newSection.classList = 'content-child';
 
     //Add Image element
@@ -120,3 +127,25 @@ function scrollNav(){
     });
 }
 
+//Search function
+function search(e){
+    if(e.keyCode == 13){
+        contentChild.forEach(e => {
+            e.classList.add('content-child-rm');
+        });
+        let searchValue = searchInput.value;
+        data.forEach(element => {
+            let contents = Object.values(element)[0];
+            contents.forEach(eachContent => {
+                if(eachContent.topic.includes(searchValue)){
+
+                    console.log(eachContent.img);
+                    appendContent(content, eachContent.img, eachContent.topic, eachContent.detail, eachContent.url);
+                }else{
+
+                    console.log("Miss match");
+                }
+            });
+        });
+    }
+}
