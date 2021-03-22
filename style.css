@@ -143,6 +143,9 @@ nav.sticky .logo a{
     justify-content: center;
 
 }
+.content-child-rm{          /*Remove content from feed*/
+    display:none;
+}
 .content #img{
     width: 20em;
     height: 15rem;
