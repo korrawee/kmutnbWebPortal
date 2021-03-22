@@ -131,7 +131,12 @@ nav.sticky .logo a{
     display: flex;
     flex-flow: column;
     margin: 50px 50px;
-
+}
+.no-result-hidden{                            /*remove no result text*/
+    display:none;
+}
+.no-result-show{
+    display:inline-block;
 }
 .content-child{
     display: grid;

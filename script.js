@@ -1,6 +1,7 @@
 const content = document.querySelector('.content');
 const navBar = document.querySelector('nav');
 const page = document.querySelector("page");
+const homeText = document.querySelector(".home-text");
 const searchInput = document.querySelector('.search-input');
 
 var data = {};
@@ -129,26 +130,37 @@ function scrollNav(){
 
 //Search function
 function search(e){
-    if(e.keyCode == 13){
-        contentChild.forEach(e => {
+    if(e.keyCode == 13){ //Pressed RETURN key 
+        let matched = 0;
+        let result = document.querySelector('.content h2');
+        let searchValue = searchInput.value;
+        homeText.innerHTML = "<h4>ผลลัพธ์การค้นหา.</h4>"; //change home text
+
+        contentChild.forEach(e => {         //remove old contents
             e.classList.add('content-child-rm');
         });
-        let searchValue = searchInput.value;
-        data.forEach(element => {
-            let contents = Object.values(element)[0];
-            contents.forEach(eachContent => {
-                if(eachContent.topic.includes(searchValue) || eachContent.detail.includes(searchValue)){
 
-                    console.log(eachContent.img);
-                    appendContent(content, eachContent.img, 
+        data.forEach(element => {   // Loop in data
+            let contents = Object.values(element)[0]; // contents in category
+            contents.forEach(eachContent => {           // Loop each content
+                if(eachContent.topic.includes(searchValue) || 
+                    eachContent.detail.includes(searchValue)){ //Is search value in any content?
+                    matched +=1; //counting matched content
+
+                    appendContent(content, eachContent.img, // show the content
                         eachContent.topic, 
                         eachContent.detail, 
                         eachContent.url);
                 }else{
-
-                    console.log("Miss match");
+                    console.log("Mismatch");
                 }
             });
         });
+
+        if(matched == 0){ // No content match with search value
+            result.classList.add('no-result-show');
+        }else{
+            result.classList.remove('no-result-show');
+        }
     }
 }
