@@ -25,7 +25,8 @@ function genContent(){
 
                     for(let i=0 ; i < catElement.length ; i++){
                         appendContent(content, catElement[i].img, 
-                                    catElement[i].topic, 
+                                    createElement[i].topic,
+                                    catElement[i].detail, 
                                     catElement[i].url);
                     }
                 }
@@ -34,7 +35,8 @@ function genContent(){
                 console.log(data[1].award.length);
                 for(let i=0 ; i < data[1].award.length ; i++){
                     appendContent(content, data[1].award[i].img, 
-                                    data[1].award[i].topic, 
+                                    data[1].award[i].topic,
+                                    data[1].award[i].detail, 
                                     data[1].award[i].url);
                 }
                 break;
@@ -42,7 +44,8 @@ function genContent(){
                 console.log(data[2].invent.length);
                 for(let i=0 ; i < data[2].invent.length ; i++){
                     appendContent(content, data[2].invent[i].img, 
-                                    data[2].invent[i].topic, 
+                                    data[2].invent[i].topic,
+                                    data[2].invent[i].detail, 
                                     data[2].invent[i].url);
                 }
                 break;
@@ -50,15 +53,17 @@ function genContent(){
                 console.log(data[3].scholarship.length);
                 for(let i=0 ; i < data[3].scholarship.length ; i++){
                     appendContent(content, data[3].scholarship[i].img, 
-                                    data[3].scholarship[i].topic, 
+                                    data[3].scholarship[i].topic,
+                                    data[3].scholarship[i].detail, 
                                     data[3].scholarship[i].url);
                 }
                 break;
             case "research":
                 console.log(data[0].research.length);
                 for(let i=0 ; i < data[0].research.length ; i++){
-                    appendContent(content, data[0].research[i].img, 
+                    appendContent(content, data[0].research[i].img,
                                     data[0].research[i].topic,
+                                    data[0].research[i].detail,
                                     data[0].research[i].url);
                 }
                 break;
@@ -68,7 +73,7 @@ function genContent(){
     
     
 }
-function appendContent(parent, imgSrc, contentSrc, urlSrc){
+function appendContent(parent, imgSrc, topicSrc, contentSrc, urlSrc){
     //Create content section
     const newSection = document.createElement('section');
     newSection.classList = 'content-child';
@@ -83,11 +88,17 @@ function appendContent(parent, imgSrc, contentSrc, urlSrc){
     });
     newSection.appendChild(newImage);
 
+    //Add topic element
+    const newTopic = document.createElement('p');
+    newTopic.id = 'content-topic';
+    newTopic.innerText = topicSrc;
+    newSection.appendChild(newTopic);
+
     //Add content element
     const newContent = document.createElement('p');
     newContent.id = 'content-text';
     newContent.innerText = contentSrc;
-    newSection.appendChild(newContent);
+    newTopic.appendChild(newContent);
 
     parent.appendChild(newSection);
 }
