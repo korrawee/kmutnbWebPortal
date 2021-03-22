@@ -92,9 +92,11 @@ function appendContent(parent, imgSrc, topicSrc, contentSrc, urlSrc){
     const contentText = document.createElement('div');
     contentText.classList.add("content-text");
         //Add topic
-    const newTopic = document.createElement('h4');
+    const newTopic = document.createElement('a');
     newTopic.id = 'content-topic';
-    newTopic.innerText = topicSrc;
+    newTopic.addEventListener('click', () => {
+        window.location.href = urlSrc;
+    });    newTopic.innerText = topicSrc;
     contentText.appendChild(newTopic);
 
         //Add content element
