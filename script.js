@@ -137,10 +137,13 @@ function search(e){
         data.forEach(element => {
             let contents = Object.values(element)[0];
             contents.forEach(eachContent => {
-                if(eachContent.topic.includes(searchValue)){
+                if(eachContent.topic.includes(searchValue) || eachContent.detail.includes(searchValue)){
 
                     console.log(eachContent.img);
-                    appendContent(content, eachContent.img, eachContent.topic, eachContent.detail, eachContent.url);
+                    appendContent(content, eachContent.img, 
+                        eachContent.topic, 
+                        eachContent.detail, 
+                        eachContent.url);
                 }else{
 
                     console.log("Miss match");
