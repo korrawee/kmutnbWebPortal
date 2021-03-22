@@ -25,7 +25,7 @@ function genContent(){
 
                     for(let i=0 ; i < catElement.length ; i++){
                         appendContent(content, catElement[i].img, 
-                                    createElement[i].topic,
+                                    catElement[i].topic,
                                     catElement[i].detail, 
                                     catElement[i].url);
                     }
@@ -88,18 +88,22 @@ function appendContent(parent, imgSrc, topicSrc, contentSrc, urlSrc){
     });
     newSection.appendChild(newImage);
 
-    //Add topic element
-    const newTopic = document.createElement('p');
+    //Add topic & detail element
+    const contentText = document.createElement('div');
+    contentText.classList.add("content-text");
+        //Add topic
+    const newTopic = document.createElement('h4');
     newTopic.id = 'content-topic';
     newTopic.innerText = topicSrc;
-    newSection.appendChild(newTopic);
+    contentText.appendChild(newTopic);
 
-    //Add content element
+        //Add content element
     const newContent = document.createElement('p');
-    newContent.id = 'content-text';
+    newContent.id = 'content-detail';
     newContent.innerText = contentSrc;
-    newTopic.appendChild(newContent);
+    contentText.appendChild(newContent);
 
+    newSection.appendChild(contentText);
     parent.appendChild(newSection);
 }
 

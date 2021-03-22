@@ -156,14 +156,20 @@ nav.sticky .logo a{
     height: 16rem;
     cursor: pointer;
 }
-#content-text{
+
+#content-detail{
     color: #222222;
+    margin-top: 5%;
     margin-left: 5%;
     justify-content: end;
     font-size: 14px;
     font-weight: lighter;
     max-width: 90em;
     text-indent: 40px;
+}
+#content-topic:hover{
+    cursor: pointer;
+    text-decoration-line: underline;
 }
 
 /*.content-child{
