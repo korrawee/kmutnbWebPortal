@@ -12,10 +12,11 @@
     --text-color: white;
     --nav-color: #da3f02;
     --bg-color:#f0eeee;
+    --primary-font: 'Kanit', sans-serif;
 }
 
 body{
-    font-family: 'Kanit', sans-serif;
+    font-family: var(--primary-font);
     background-color: var(--bg-color);
 
 }
@@ -220,7 +221,7 @@ nav.sticky .logo a{
     margin-left: .5em;
     text-align: start;
     font-size: 1rem;
-    font-family: 'Kanit', sans-serif;
+    font-family: var(--primary-font);
     font-weight: 200;
     max-width: 55ch;
     text-indent: 4ch;

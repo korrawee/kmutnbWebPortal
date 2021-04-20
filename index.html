@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://d3js.org/d3.v6.min.js" type="text/JavaScript"></script>
+    <script src="https://d3js.org/d3.v3.min.js" type="text/JavaScript"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <!--Get google Fonts (Istok, Kanit)-->
-    <link href="https://fonts.googleapis.com/css2?family=Istok+Web&family=Kanit&display=swap" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Istok+Web&family=Kanit:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">    
     <!--Get Icons from font-awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <script src="src/d3-timeline.js"></script>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./timeline-style.css">
     <title>KMUTNB Portal</title>
+
 </head>
 <body>
     <page class="index"></page>
@@ -37,10 +40,10 @@
         </ul>
         <!--Search box-->
         <div class="search">
-            <button class="search-button">
+            <button class="search-button" aria-label="search">
                 <i class="fas fa-search"></i>
             </button>
-            <input type="text" class="search-input">    
+            <input type="text" class="search-input" aria-label="ค้นหาบทความ">
         </div>
     </nav>
     <!--Home-->
@@ -54,11 +57,20 @@
         </div>
     </section>
 
-    <!--========== Timeline ==========-->
-    <section id="timeline"></section>
+    <!--<div id="timeline"><h1>timeline Section</h1></div>-->
 
     <!--Content-->
-    <section class="content"><h2 class="no-result-hidden">ไม่พบบทความที่ค้นหา</h2></section>
+    <div id="chart">
+        <div class="label-legend">
+            <h3 class="timeline-label">Timeline บทความ</h3>
+            <div class="legend"></div>
+        </div>
+        <div id="timeline2"></div>
+        <h3 class="label"> </h3>
+    </div>
+    <section class="content"><h2 class="no-result-hidden">ไม่พบบทความที่ค้นหา.</h2></section>
+
 <script src="script.js"></script>
+<script src="timeline.js"></script>
 </body>
 </html>

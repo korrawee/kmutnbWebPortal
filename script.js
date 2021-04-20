@@ -6,6 +6,8 @@ const searchInput = document.querySelector('.search-input');
 
 var data = {};
 var contentChild = [];
+
+
 //EventListeners
 searchInput.addEventListener('keydown', (e) => {
     if(e.keyCode == 13){//Pressed RETURN key call search func.
@@ -26,8 +28,10 @@ searchInput.addEventListener('keydown', (e) => {
     } 
 });
 
+//Call Functions
 scrollNav();
 genContent();
+
 
 //Functions
 
