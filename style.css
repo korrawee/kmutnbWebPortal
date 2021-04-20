@@ -3,85 +3,103 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /*overflow: hidden;*/
 }
 *:focus{
     outline: none;                      /*Do not show border when element focused*/
 }
+:root{
+    --content-bg-color: rgba(240, 80, 6, 0.8);
+    --text-color: white;
+    --nav-color: #da3f02;
+    --bg-color:#f0eeee;
+}
 
 body{
     font-family: 'Kanit', sans-serif;
-    background: #ececec;
+    background-color: var(--bg-color);
 
 }
 
 /* Navigation Bar */
-nav {
+nav{
     position: sticky;
-    top:0;
+    font-weight: 400;
+    top: 0;
     z-index: 3;
     display: flex;                      /*Display elements in "nav" as Flexible Box*/
     justify-content: space-between;     /*Seperant elements to leftside and rightside*/
     align-items: center;                /*align elements in "nav" class to center*/
     min-height: 8vh;                    /*Minimum height 8% of the viewport*/
-    background: #ec4411;
-    transition: all 0.3s ease;
+    background: var(--nav-color);
 }
 .logo a{
-    color: white;
+    color: var(--primary-color);
     text-transform: uppercase;          /*Uppercase logo's text*/
-    letter-spacing: 5px;                /*Increased space between letter by 5 pixel*/
-    font-size: 25px;
-    margin-left: 10px;                  /*Add margin to the left 10 pixel*/
+    letter-spacing: 2px;                /*Increased space between letter by 2 pixel*/
+    font-size: 2rem;
+    font-weight: 500;
+    margin-left: .1em;                  /*Add margin to the left 0.1 em*/
+    padding: 0 .5em;
     text-decoration: none;              /*Remove text decoration*/
-    transition: all 0.3s ease;
-}
-.logo a:hover{
-    color: #161616;
-    cursor: pointer;                    /*Change mouse's cursor to pointer when pointing on "logo"*/
-}
+    transition: all .3s ease;
 
+}
+.logo a:hover
+{
+    color: #161616;
+    cursor: pointer;                    /*Change mouse's cursor to pointer when pointing on 
+                                        "logo"*/
+}
+.logo a:focus,
+.nav-link a:focus{
+    border: 1px solid rgba(255,255,255, 0.7);
+    box-shadow: 0 0 2px var(--text-color);
+}
 
 .nav-links{                             
     display: flex;                      /*Display elements in "nav-links" as Flexible Box*/
     justify-content: space-around;      /*Seperant all elements equaly*/
-    width: 30%;                         
     flex: 1;                            /*arrange navigation menu*/
 }
 .nav-link a{
-    color: white;
-    transition: all .4s ease;    
+    color: var(--text-color);
+    padding: 0 .5em;
 }
 .nav-link a:hover{
     color: #161616;
-    cursor: pointer;                    /*Change mouse's cursor to pointer when pointing on "nav-link"*/
+    cursor: pointer;                    /*Change mouse's cursor to pointer when pointing on 
+                                        "nav-link"*/
 }
+
 .nav-links li{
     list-style: none;                   /*Remove the bullet*/
 }
 .nav-link a{
-    color:white;
+    color: var(--text-color);
     text-decoration: none;              /*Remove text's decoration*/
-    letter-spacing: 2px;                /*Increased space between letter by 5 pixel*/
-    font-size: 20px;
+    letter-spacing: 2px;                /*Increased space between letter by 2 pixel*/
+    font-size: 1.25rem;
 }
 
 .search{
-    background-color: rgb(255, 255, 255);
-    border-radius: 10px;                /*Rounded search box's border*/
-    margin-right: 5px;                  /*Add right margin*/
+    background-color: white;
+    border-radius: 1em;                /*Rounded search box's border*/
+    margin-right: .5em;                  /*Add right margin*/
 
 }
 .search-button{
     background: none;                   /*Transparent background*/
     border: none;                       /*Remove button's border*/
-    padding-left: 2px;                  /*Add left padding*/
+    padding-left: 1em;                  /*Add left padding*/
     size: 2rem;                         /*Increased size by 2 root element*/
-    cursor: pointer;                    /*Change mouse's cursor to pointer when pointing on "search-button"*/
+    cursor: pointer;                    /*Change mouse's cursor to pointer when pointing on 
+                                        "search-button"*/
 }
 .search-input{                          
     background: none;                   /*Transparent background*/
     border: none;                       /*Remove search box's border*/
+    font-size: 1rem;
+    text-align: left;
 }
 
 /* Navigation Bar Animaiton */
@@ -89,7 +107,7 @@ nav.sticky{
     height: 9vh;
 }
 nav.sticky .logo a{
-    font-size: 32px;
+    font-size: 2.15rem;
 }
 
 /* Seciton HOME */
@@ -97,18 +115,24 @@ nav.sticky .logo a{
     display: flex;
     align-content: center;
     justify-content: center;
-    font-size: 60px;
+    font-size: 3rem;
     background-image: url("./src/img/g.jpg");   /*Set background image*/
-    background-position: cover;                /*Align background image to center*/
-    min-width: 100%;                    /*Background's width always equal to viewport's width*/
-    min-height: 3.9em                   /*Background height always equal to 3.9 times of element*/
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: top;
+    min-width: 100%;                    /*Background's width always equal to viewport's 
+                                        width*/
+    min-height: 3.9em                   /*Background height always equal to 3.9 times of 
+                                        element*/
 }
 .glass{
-    margin: 5px 0px;                    /*Add left|right margin 5 pixel and top|bottom 0 pixel*/
-    padding: 4rem 0px;                  /*Add left|right padding 5 pixel and top|bottom 0 pixel*/
+    margin: .25em 0;                    /*Add left|right margin .25em and top|bottom 
+                                        0 pixel*/
+    padding: 4rem 0px;                  /*Add left|right padding 4rem and top|bottom 
+                                        0 pixel*/
     background: white;
-    width: 70%;                         /*Base width equal to 70% of viewport*/
-    height: 218px;                      /*Base height equal to 218 pixel*/
+    width: 70%;                         /*Base width equal to 70% of parent*/
+    height: 90%;                      /*Base height equal to 90% of parent*/
     border-radius: 20px;                /*Rounded glass's border by 20 pixel*/
     background: linear-gradient(        /*Decrease glass's opacity*/
         to right bottom,
@@ -117,79 +141,98 @@ nav.sticky .logo a{
     );
     z-index: 1;                         /*Add glass to layer 1*/
     backdrop-filter: blur(3px);         /*Blur all the elements behind*/
-    border: 1px solid rgba(255, 255, 255, 0.4); /*Add glass's border*/
+    -webkit-backdrop-filter: blur(3px); /*Blur all the elements behind*/
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);  /*glass's shadow*/
 
 }
 .home-text{
     display: flex;
-    color: rgb(255, 255, 255);
-    text-shadow: 2px 1px rgb(37, 36, 36);   /*Add text's shadow*/
+    color: var(--text-color);
+    text-shadow: 0 0 5px rgb(15, 15, 15);   /*Add text's shadow*/
     letter-spacing: 3px;                /*Increased space between letter by 3 pixel*/
     justify-content: center;            /*Justify text to center*/
     z-index: 2;                         /*Add text to layer 2*/
 }
-
+/*Section Content*/
 .content{
     display: flex;
     flex-flow: column;
     background: none;
-
-    margin: 50px 50px;
+    margin: 3em;
 }
 .no-result-hidden{                            /*remove no result text*/
     display:none;
 }
 .no-result-show{
     display:inline-block;
+    font-weight: 200;
+}
+.content-text{
+    align-self: center;
 }
 .content-child{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin-top: 10px;
-    padding: 20px;
+    margin: 0;
+    padding: 1em 2em;
     border-radius: 5px;
-    box-shadow: 1px 1px #888888;
-    background: white;
-
+    box-shadow: 0 0 5px #c5c4c4;
+    background:  var(--content-bg-color);
     justify-content: center;
-
+    margin-bottom: 2em;
 }
+
 .content-child-rm{          /*Remove content from feed*/
     display:none;
 }
 .content #img{
-    width: 20em;
-    height: 15rem;
+    width: 27em;
+    height: 13rem;
     object-fit: cover;
+    justify-self: end;
+    align-self: center;
+    margin-right: 3em;
     border-radius: 10px;
-    border: solid 2px #c3c3c3;
+    box-shadow: 0 0 5px rgba(61, 60, 60, 0.7);
     transition: width .3s, height .3s;
 }
 .content #img:hover{
-    width: 21em;
-    height: 16rem;
+    opacity: 70%;
     cursor: pointer;
+
 }
 
-#content-detail{
-    color: #222222;
-    margin-top: 5%;
-    margin-left: 5%;
-    justify-content: end;
-    font-size: 14px;
-    font-weight: lighter;
-    max-width: 90em;
-    text-indent: 40px;
+#content-topic{
+    display: block;
+    color: var(--text-color);
+    text-align: start;
+    font-size: 1.25rem;
+    font-weight:400;
+    max-width: 50ch;
+    text-indent: 4ch;
+    letter-spacing: 1px;
+    margin-bottom: 1em;
 }
+
+
+#content-detail{
+    color: var(--text-color);
+    margin-left: .5em;
+    text-align: start;
+    font-size: 1rem;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 200;
+    max-width: 55ch;
+    text-indent: 4ch;
+    letter-spacing: 1px;
+
+}
+
 #content-topic:hover{
     cursor: pointer;
     text-decoration-line: underline;
 }
-
-/*.content-child{
-    display: flex;
-    margin-top: 20px;
-    justify-content: center;
-
-}*/
+#content-topic:focus{
+    text-decoration-line: underline;
+}
 
