@@ -8,7 +8,22 @@ var data = {};
 var contentChild = [];
 //EventListeners
 searchInput.addEventListener('keydown', (e) => {
-    search(e);
+    if(e.keyCode == 13){//Pressed RETURN key call search func.
+        homeText.innerHTML = "<h4>ผลลัพธ์การค้นหา</h4>"; //change home text
+
+        contentChild.forEach(e => {         //remove old contents
+            e.classList.add('content-child-rm');
+        });
+
+        let result = document.querySelector('.content h2');
+        let matched = search(e);
+
+        if(matched == 0){ // No content match with search value
+            result.classList.add('no-result-show');
+        }else{
+            result.classList.remove('no-result-show');
+        }
+    } 
 });
 
 scrollNav();
@@ -28,14 +43,18 @@ function genContent(){
         switch(page.classList.value){
             case "index":
                 let catLen = data.length; // catLen = number of category
-                for(let catIndex=0 ; catIndex < catLen ; catIndex++){
-                    let catElement = Object.values(data[catIndex])[0];
+                let articleName = [];
+                for(let catIndex=0 ; catIndex < catLen ; catIndex++){ // Loop each category
+                    let articles = Object.values(data[catIndex])[0];
 
-                    for(let i=0 ; i < catElement.length ; i++){
-                        appendContent(content, catElement[i].img, 
-                                    catElement[i].topic,
-                                    catElement[i].detail, 
-                                    catElement[i].url);
+                    for(let i=0 ; i < articles.length ; i++){ // Loop each article
+                        if(!articleName.includes(articles[i].topic)){ // check is this article displayed
+                        articleName.push(articles[i].topic)
+                        appendContent(content, articles[i].img, 
+                                    articles[i].topic,
+                                    articles[i].detail, 
+                                    articles[i].url);
+                        }
                     }
                 }
                 break;
@@ -92,7 +111,7 @@ function appendContent(parent, imgSrc, topicSrc, contentSrc, urlSrc){
     newImage.id = 'img';
     //newImage.classList.add('img-transition');
     newImage.addEventListener('click', () => {
-        window.location.href = urlSrc;
+        window.open(urlSrc, "_blank");
     });
     newSection.appendChild(newImage);
 
@@ -103,8 +122,9 @@ function appendContent(parent, imgSrc, topicSrc, contentSrc, urlSrc){
     const newTopic = document.createElement('a');
     newTopic.id = 'content-topic';
     newTopic.addEventListener('click', () => {
-        window.location.href = urlSrc;
-    });    newTopic.innerText = topicSrc;
+        window.open(urlSrc, "_blank");
+    });    
+    newTopic.innerText = topicSrc;
     contentText.appendChild(newTopic);
 
         //Add content element
@@ -130,16 +150,9 @@ function scrollNav(){
 
 //Search function
 function search(e){
-    if(e.keyCode == 13){ //Pressed RETURN key 
         let matched = 0;
-        let result = document.querySelector('.content h2');
         let searchValue = searchInput.value;
-        homeText.innerHTML = "<h4>ผลลัพธ์การค้นหา.</h4>"; //change home text
-
-        contentChild.forEach(e => {         //remove old contents
-            e.classList.add('content-child-rm');
-        });
-
+    
         data.forEach(element => {   // Loop in data
             let contents = Object.values(element)[0]; // contents in category
             contents.forEach(eachContent => {           // Loop each content
@@ -156,11 +169,5 @@ function search(e){
                 }
             });
         });
-
-        if(matched == 0){ // No content match with search value
-            result.classList.add('no-result-show');
-        }else{
-            result.classList.remove('no-result-show');
-        }
-    }
+        return matched;       
 }
